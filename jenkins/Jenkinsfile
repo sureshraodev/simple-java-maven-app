@@ -9,6 +9,9 @@ pipeline {
         maven 'Maven-3.5.4'
         'org.jenkinsci.plugins.docker.commons.tools.DockerTool' 'Docker-18.09' 
     }
+    environment {
+		DOCKERHUB_CREDENTIALS=credentials('docker')
+	}
     stages {
         stage ('Initialize') {
             steps {
@@ -42,7 +45,9 @@ pipeline {
             steps {
                 sh'''
                     # Build the image
-                    docker build . -t k8s-debian-test
+                    docker build . -t sureshrao/k8s-debian-test
+                    echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                    docker push sureshrao/k8s-debian-test:latest
                 '''
             }
         }
