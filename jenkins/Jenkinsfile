@@ -46,7 +46,7 @@ pipeline {
                 sh'''
                     # Build the image
                     docker build . -t sureshrao/k8s-debian-test
-                    echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+                    echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin
                     docker push sureshrao/k8s-debian-test:latest
                 '''
             }
