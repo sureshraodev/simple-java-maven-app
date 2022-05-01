@@ -29,10 +29,3 @@ spec:
         ports:
         - containerPort: 80
           protocol: TCP
-        livenessProbe:
-          httpGet:
-            scheme: HTTP
-            path: /
-            port: 80
-          initialDelaySeconds: 30
-          timeoutSeconds: 30
