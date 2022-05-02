@@ -6,7 +6,7 @@ package com.mycompany.app;
 public class App
 {
 
-    private final String message = "Hello World!";
+    private final String message = "This is a test application to test argocd integration!";
 
     public App() {}
 
