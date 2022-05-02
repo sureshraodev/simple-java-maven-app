@@ -59,7 +59,7 @@ pipeline {
                         APP_NAME="java-maven"
                         CONTAINER="k8s-debian-test"
                         
-                        IMAGE_DIGEST=$(docker image inspect sureshrao\$CONTAINER:latest -f '{{join .RepoDigests ","}}')
+                        IMAGE_DIGEST=$(docker image inspect sureshrao/\$CONTAINER:latest -f '{{join .RepoDigests ","}}')
                         # Customize image 
                         ARGOCD_SERVER=$ARGOCD_SERVER argocd --grpc-web app set $APP_NAME --kustomize-image $IMAGE_DIGEST
            
