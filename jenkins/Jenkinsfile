@@ -56,7 +56,7 @@ pipeline {
                      withCredentials([string(credentialsId: "argocd-deploy-role", variable: 'ARGOCD_AUTH_TOKEN')]) {
                         sh '''
                         ARGOCD_SERVER="argocd-server.argocd.svc.cluster.local"
-                        ###
+                        ####
                         APP_NAME="java-maven"
                         CONTAINER="k8s-debian-test"
                         
